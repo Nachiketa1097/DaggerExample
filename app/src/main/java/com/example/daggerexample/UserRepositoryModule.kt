@@ -12,7 +12,7 @@ abstract class UserRepositoryModule {
 //    }
 
 //    @Provides
-//    fun getSQLRepository(sqlRepository: SQLRepository) : UserRepository{
+//    fun getSQLRepository(sqlRepository: SQLRepository) : UserRepository{ // we use @inject with SQLRepository so dagger create object of SQLRepository
 //        return sqlRepository
 //    }
 
