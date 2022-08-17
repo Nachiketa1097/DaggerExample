@@ -5,11 +5,14 @@ import android.os.Bundle
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
     @Inject
     lateinit var userRegistrationService : UserRegistrationService
     @Inject
     lateinit var emailService: EmailService
-
+    @Inject
+    lateinit var emailService1: EmailService
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,7 +21,7 @@ class MainActivity : AppCompatActivity() {
            // .notificationServiceModule(NotificationServiceModule(3)) //if i comment this than i get runtime error that notificationServiceModule must have value
 //            .build()
 
-         val component  = DaggerUserRegistrationComponent.factory().create(3)
+        val component  = DaggerUserRegistrationComponent.factory().create(3)
 
         component.inject(this)
         userRegistrationService.registerUser("nachiketa1097@gmail.com", "1000001")

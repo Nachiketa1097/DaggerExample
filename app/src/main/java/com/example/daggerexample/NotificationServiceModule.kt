@@ -3,6 +3,7 @@ package com.example.daggerexample
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
+import javax.inject.Singleton
 
 //@Module
 //class NotificationServiceModule(private val retryCount : Int) {
@@ -24,6 +25,7 @@ import javax.inject.Named
 @Module
 class NotificationServiceModule() {
 
+    @Singleton
     @MessageQualifier
     @Provides
     fun getMessageService(retryCount : Int) : NotificationService{
