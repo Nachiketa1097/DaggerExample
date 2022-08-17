@@ -17,12 +17,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val component  = DaggerUserRegistrationComponent.builder()
-           // .notificationServiceModule(NotificationServiceModule(3)) //if i comment this than i get runtime error that notificationServiceModule must have value
-//            .build()
+//        val component  = DaggerUserRegistrationComponent.factory().create(3)
+//        emailService = component.getEmailService()
+//        emailService1 = component.getEmailService()
+//
+//        val component2  = DaggerUserRegistrationComponent.factory().create(3)
+//        emailService1 = component2.getEmailService()
+//        emailService = component2.getEmailService()
 
-        val component  = DaggerUserRegistrationComponent.factory().create(3)
-
+        val component = (application as UserApplication).userRegistrationComponent
         component.inject(this)
         userRegistrationService.registerUser("nachiketa1097@gmail.com", "1000001")
         emailService.send("","","")
